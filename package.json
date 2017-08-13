@@ -1,0 +1,24 @@
+{
+  "name": "wagwana-bot",
+  "version": "1.0.0",
+  "description": "Discord bot for Wagwan",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/B1scuit/wagwana-bot.git"
+  },
+  "author": "Peter Holt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/B1scuit/wagwana-bot/issues"
+  },
+  "homepage": "https://github.com/B1scuit/wagwana-bot#readme",
+  "dependencies": {
+    "discord.io": "^2.5.1",
+    "request": "^2.81.0",
+    "winston": "^2.3.1"
+  }
+}
