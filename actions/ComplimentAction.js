@@ -21,7 +21,7 @@ module.exports = {
         console.log(body);
         bot.sendMessage({
           to: args.channelID,
-          message : '@' + user + ' ' + body,
+          message : '@' + args.user + ' ' + body,
           tts: false
         });
 
