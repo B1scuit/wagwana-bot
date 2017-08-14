@@ -18,10 +18,10 @@ module.exports = {
       return true;
     } else {
       request('http://compliment-api.herokuapp.com', function(err, res, body){
-        console.log(body);
+
         bot.sendMessage({
           to: args.channelID,
-          message : '@' + args.user + ' ' + body,
+          message : args.user + ', ' + body,
           tts: false
         });
 
