@@ -18,6 +18,7 @@
   "homepage": "https://github.com/B1scuit/wagwana-bot#readme",
   "dependencies": {
     "discord.io": "^2.5.1",
+    "discord.js": "^11.1.0",
     "request": "^2.81.0",
     "winston": "^2.3.1"
   }

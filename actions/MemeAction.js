@@ -1,13 +1,11 @@
 module.exports = {
 
-  includes: function(){
+  main: function(msg){
     var request = require('request');
     var url = require('url');
     var http = require('http');
-  }
-  main: function(args){
 
-    request('http://www.reddit.com/r/OffensiveMemes.json', function(err, res, body){
+    request('http://www.reddit.com/r/OffensiveMemes/new.json?limit=100', function(err, res, body){
 
       if(err){
         console.log('[getMeme] Error:' + err);
@@ -18,21 +16,11 @@ module.exports = {
 
       url2 = body.data.preview.images[0].source.url;
       url2 = url2.replace(/^https:\/\//i, 'http://');
+      url2 = url.parse(url2);
 
+      msg.reply(url2.href);
 
-      console.log('[getMeme]: Uploading: ' + url2);
-
-      http.get(url.parse(url2), function(res) {
-        var data = [];
-
-        res.on('data', function(chunk) {
-            data.push(chunk);
-        }).on('end', function() {
-          bot.uploadFile({to: channelID, file: Buffer.concat(data)});
-        });
-      });
-
-      console.log('[getMeme]: Task complete.');
+      console.log('[memeAction]: Task complete.');
     });
 
     return true;
