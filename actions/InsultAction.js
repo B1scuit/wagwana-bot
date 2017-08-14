@@ -1,16 +1,13 @@
 module.exports = {
 
-  main: function(args, bot){
+  main: function(msg){
     var request = require('request');
 
-    request('https://insult.mattbas.org/api/insult.txt?who=' + args.user, function(err, res, body){
-      bot.sendMessage({
-        to: args.channelID,
-        message : body,
-        tts: false
-      });
+    request('https://insult.mattbas.org/api/insult.txt?who=' + msg.author.username, function(err, res, body){
 
-      console.log('[getInsult]: Generated insult:' + body);
+      msg.reply(body, {tts: true});
+
+      console.log('[insultAction]: Generated insult: ' + body);
 
     });
 
