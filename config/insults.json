@@ -1,0 +1,91 @@
+{
+"insults": {
+    "connector" : [
+      "is a fucking",
+      "is a",
+      "100% is a",
+      "definitely is a",
+      "is already a",
+      "the cunting"
+    ],
+    "noun": [
+      "jew",
+      "nazi",
+      "cunt",
+      "fuckhammer",
+      "jew cannon",
+      "shit stick",
+      "wankatank",
+      "golfer",
+      "twat",
+      "div",
+      "chav",
+      "nigger",
+      "chink",
+      "cracker",
+      "paki",
+      "fuck stick",
+      "nob",
+      "dick nozzle",
+      "fat cunt",
+      "dip shit"
+    ],
+    "added" : [
+      "run over by",
+      "punched by",
+      "decapitated by",
+      "throttled by",
+      "raped by",
+      "raped by",
+      "cunt-punched by",
+      "fucked by",
+      "fucked up by",
+      "rectally violated by"
+
+    ],
+    "object": [
+      "an icecream truck",
+      "a herse",
+      "a hillbilly",
+      "Fil",
+      "Benji",
+      "Sam",
+      "Biscuit",
+      "Tom",
+      "Lobbson",
+      "Dwarf",
+      "a rope",
+      "an AWP",
+      "the train to auschwitz",
+      "a tramp",
+      "a donkey",
+      "a fucked up lemon",
+      "a muslim",
+      "a cristian",
+      "a bhuddist",
+      "the KKK",
+      "Madeleine Mccann",
+      "The fritzls",
+      "baby P",
+      "a fetus"
+    ],
+    "delimiter": [
+      "and should be",
+      "and really needs to be"
+    ],
+    "endInsult" : [
+      "that is all.",
+      "fucking idiot right?",
+      "I hope he dies alone.",
+      "I hope he gets cancer.",
+      "the person AIDS exists for.",
+      "the twats mum should have swallowed."
+    ],
+    "structure": [
+      "${connector} ${noun} ${delimiter} ${added} ${object}",
+      "${connector} ${noun} ${delimiter} ${added} ${object}",
+      "${connector} ${noun}, ${endInsult}",
+      "${connector} ${noun}"
+    ]
+  }
+}
