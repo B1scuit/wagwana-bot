@@ -21,16 +21,16 @@ module.exports = {
         })
         .then(
             x => {
-                console.log('[insultAction]: Generated insult: ' + x);
-                return x;
-            }
-        )
-        .then(
-            x => {
                 var args = msg.content.substring(1).split(' ');
                 if(args.length == 1){
                     return '<@' + msg.author.id + '>, ' + x;
                 } else return  args[1] + ', ' + x;
+            }
+        )
+        .then(
+            x => {
+                console.log('[insultAction]: Generated insult: ' + x);
+                return x;
             }
         )
         .then(x => msg.guild.defaultChannel.send(x))
