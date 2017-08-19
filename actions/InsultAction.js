@@ -29,8 +29,8 @@ module.exports = {
             x => {
                 var args = msg.content.substring(1).split(' ');
                 if(args.length == 1){
-                    return '<@' + msg.author.id + '>,' + x;
-                } else return  args[1] + ',' + x;
+                    return '<@' + msg.author.id + '>, ' + x;
+                } else return  args[1] + ', ' + x;
             }
         )
         .then(x => msg.guild.defaultChannel.send(x))
