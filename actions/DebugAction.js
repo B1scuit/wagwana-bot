@@ -4,7 +4,7 @@ module.exports = {
   },
   main: function(msg){
 
-    msg.reply(msg.message, { split: true});
+    msg.guild.defaultChannel.send(msg.message, { split: true});
 
     return true;
   }
