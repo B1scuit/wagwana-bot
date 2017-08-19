@@ -1,23 +1,40 @@
 module.exports = {
 
   main: function(msg){
-    var request = require('request');
-    var ins = require('../config/insults.json');
+    var Promise = require("bluebird");
+    var readFile = Promise.promisify(require("fs").readFile);
 
-    var sentance = ins.insults.structure[Math.floor(Math.random()*ins.insults.structure.length)];
-    var connector = ins.insults.connector[Math.floor(Math.random()*ins.insults.connector.length)];
-    var noun = ins.insults.noun[Math.floor(Math.random()*ins.insults.noun.length)];
-    var delimiter = ins.insults.delimiter[Math.floor(Math.random()*ins.insults.delimiter.length)];
-    var added = ins.insults.added[Math.floor(Math.random()*ins.insults.added.length)];
-    var object = ins.insults.object[Math.floor(Math.random()*ins.insults.object.length)];
-    var endInsult = ins.insults.endInsult[Math.floor(Math.random()*ins.insults.endInsult.length)];
+    return new Promise((resolve, reject) => {
+        readFile('config/insults.json')
+        .then(JSON.parse)
+        .then(x => x.insults)
+        .then(x => {
+            var sentance = x.structure[Math.floor(Math.random()*x.structure.length)];
+            var connector = x.connector[Math.floor(Math.random()*x.connector.length)];
+            var noun = x.noun[Math.floor(Math.random()*x.noun.length)];
+            var delimiter = x.delimiter[Math.floor(Math.random()*x.delimiter.length)];
+            var added = x.added[Math.floor(Math.random()*x.added.length)];
+            var object = x.object[Math.floor(Math.random()*x.object.length)];
+            var endInsult = x.endInsult[Math.floor(Math.random()*x.endInsult.length)];
 
-    sentance = eval('`' + sentance + '`');
-    
-    msg.reply(sentance, {tts: false});
-
-    console.log('[insultAction]: Generated insult: ' + sentance);
-
-    return true;
+            return eval('`' + sentance + '`');
+        })
+        .then(
+            x => {
+                console.log('[insultAction]: Generated insult: ' + x);
+                return x;
+            }
+        )
+        .then(
+            x => {
+                var args = msg.content.substring(1).split(' ');
+                if(args.length == 1){
+                    return '<@' + msg.author.id + '>,' + x;
+                } else return  args[1] + ',' + x;
+            }
+        )
+        .then(x => msg.guild.defaultChannel.send(x))
+        .catch(x => msg.guild.defaultChannel.send(x))
+    });
   }
 }
