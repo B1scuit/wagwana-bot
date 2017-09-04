@@ -17,6 +17,8 @@ module.exports = {
             var object = x.object[Math.floor(Math.random()*x.object.length)];
             var endInsult = x.endInsult[Math.floor(Math.random()*x.endInsult.length)];
 
+            console.log(msg.guild);
+
             return eval('`' + sentance + '`');
         })
         .then(
@@ -33,8 +35,8 @@ module.exports = {
                 return x;
             }
         )
-        .then(x => msg.guild.defaultChannel.send(x))
-        .catch(x => msg.guild.defaultChannel.send(x))
+        .then(x => msg.reply(x))
+        .catch(x => msg.reply(x))
     });
   }
 }
